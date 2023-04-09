@@ -2,7 +2,7 @@
   "publisher": "talljack",
   "name": "vscode-auto-space",
   "displayName": "VS Code Auto Add Space between Chinese and English",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@8.1.1",
   "description": "",
@@ -34,22 +34,22 @@
     "commands": [
       {
         "command": "extension.autoAddSpace",
-        "title": "Auto add space"
+        "title": "Auto Add Space"
       }
     ],
     "configuration": {
-      "title": "Auto add space configuration",
+      "title": "Auto Add Space configuration",
       "properties": {
         "autoAddSpace.enable": {
           "type": "boolean",
           "default": true,
-          "description": "Enable auto add space"
+          "description": "Enable Auto Add Space"
         },
         "autoAddSpace.comment": {
           "type": "string",
           "default": "all",
           "enum": ["all", "comment"],
-          "description": "Comment type"
+          "description": "Auto Add Space's type"
         }
       }
     }
