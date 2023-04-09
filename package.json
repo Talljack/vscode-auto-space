@@ -1,7 +1,7 @@
 {
   "publisher": "talljack",
   "name": "vscode-auto-space",
-  "displayName": "vscode auto space by comment between chinese and english",
+  "displayName": "VS Code Auto Add Space between Chinese and English",
   "version": "0.1.0",
   "private": true,
   "packageManager": "pnpm@8.1.1",
@@ -11,10 +11,10 @@
   "homepage": "https://github.com/Talljack",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Talljacl/vscode-auto-space.git"
+    "url": "https://github.com/Talljack/vscode-auto-space.git"
   },
   "bugs": {
-    "url": "https://github.com/Talljacl/vscode-auto-space.git/issues"
+    "url": "https://github.com/Talljack/vscode-auto-space.git/issues"
   },
   "categories": [
     "Other"
@@ -28,16 +28,31 @@
   },
   "activationEvents": [
     "onStartupFinished",
-    "onLanguage",
-    "onCommand:extension.addSpaceBetweenComment"
+    "onLanguage"
   ],
   "contributes": {
     "commands": [
       {
-        "command": "extension.addSpaceBetweenComment",
+        "command": "extension.autoAddSpace",
         "title": "Auto add space"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Auto add space configuration",
+      "properties": {
+        "autoAddSpace.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable auto add space"
+        },
+        "autoAddSpace.comment": {
+          "type": "string",
+          "default": "all",
+          "enum": ["all", "comment"],
+          "description": "Comment type"
+        }
+      }
+    }
   },
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
