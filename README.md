@@ -10,6 +10,13 @@ Auto add space between Chinese and English.
 
 ![autoAddSpace](https://user-images.githubusercontent.com/34439652/230905590-b70f26dd-8ea8-4d5b-a4ea-b414c259edee.jpg)
 
+## Configuration
+
+| key               | default-value | type               | description                                                 |
+| ----------------- | ------------- | ------------------ | ----------------------------------------------------------- |
+| autoSpace.enable  | true          | boolean            | Enable or disable this extension                            |
+| autoSpace.comment | 'all'         | 'all' \| 'comment' | Add space between Chinese and English in which type of text |
+
 ## License
 
 [MIT](./LICENSE) License © 2023 [Talljack](https://github.com/talljack)
