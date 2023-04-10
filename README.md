@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="res/icon.png"/>
+  <img src="./res/icon.png" width='160px'/>
 </p>
 
 <h1 align="center">Auto Add Space between Chinese and English</h1>
