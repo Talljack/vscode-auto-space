@@ -69,7 +69,7 @@ export async function autoAddSpaceComment(text: string) {
     const { line: replaceLine, changed } = addSpaceChineseAndEnglish(line)
     if (!changed)
       continue
-    const offset = text.indexOf(line)
+    const offset = document.getText().indexOf(line)
     const start = document.positionAt(offset)
     const end = document.positionAt(offset + line.length)
     const range = new Range(start, end)
