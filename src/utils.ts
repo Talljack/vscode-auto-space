@@ -2,16 +2,21 @@ import type { TextEditorEdit } from 'vscode'
 import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
 
 export function addSpaceChineseAndEnglish(line: string) {
-  const regexCE = /\s*?.*?([\u4E00-\u9FA5]+)([a-zA-Z0-9]+).*/gm
-  const regexEC = /\s*?.*?([a-zA-Z0-9]+)([\u4E00-\u9FA5]+).*/gm
+  const regexCE = /\s*?.*?([\u4E00-\u9FA5]+)([a-zA-Z0-9]+).*/
+  const regexEC = /\s*?.*?([a-zA-Z0-9]+)([\u4E00-\u9FA5]+).*/
   let match = regexCE.exec(line) || regexEC.exec(line)
+  let changed = false
   while (match !== null) {
     const chinese = match[1]
     const english = match[2]
     line = line.replace(chinese + english, `${chinese} ${english}`)
+    changed = true
     match = regexCE.exec(line) || regexEC.exec(line)
   }
-  return line
+  return {
+    line,
+    changed,
+  }
 }
 
 export function getAutoSapceConfig() {
@@ -31,7 +36,7 @@ export function autoAddSpaceAll(text: string) {
   const document = editor.document
   const lines = text.split(/\n/g)
   const updatedLines = lines?.map((line) => {
-    return addSpaceChineseAndEnglish(line)
+    return addSpaceChineseAndEnglish(line).line
   })
   const updatedText = updatedLines.join('\n')
   const start = new Position(0, 0)
@@ -48,7 +53,7 @@ export async function autoAddSpaceComment(text: string) {
     return
   const document = editor.document
   // javascript java c++ c# php swift
-  const commentRegex = /\/\/.*$|^\/\*[\s\S]*?\*\//gm
+  const commentRegex = /\/\/.*|\/\*[\s\S]*?\*\//gm
   // python
   const pythonRegex = /(\"\"\"|\'\'\')([\s\S]*?)(\"\"\"|\'\'\')|(#.*$)/gm
   // ruby
@@ -61,8 +66,10 @@ export async function autoAddSpaceComment(text: string) {
     return
   for (let i = 0; i < lines?.length; i++) {
     const line = lines[i]
-    const replaceLine = addSpaceChineseAndEnglish(line)
-    const offset = text.indexOf(line)
+    const { line: replaceLine, changed } = addSpaceChineseAndEnglish(line)
+    if (!changed)
+      continue
+    const offset = document.getText().indexOf(line)
     const start = document.positionAt(offset)
     const end = document.positionAt(offset + line.length)
     const range = new Range(start, end)
