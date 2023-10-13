@@ -12,10 +12,10 @@ Auto add space between Chinese and English.
 
 ## Configuration
 
-| key               | default-value | type               | description                                                 |
-| ----------------- | ------------- | ------------------ | ----------------------------------------------------------- |
-| autoSpace.enable  | true          | boolean            | Enable or disable this extension                            |
-| autoSpace.comment | 'all'         | 'all' \| 'comment' | Add space between Chinese and English in which type of text |
+| key                  | default-value | type               | description                                                 |
+| -------------------- | ------------- | ------------------ | ----------------------------------------------------------- |
+| autoAddSpace.enable  | true          | boolean            | Enable or disable this extension                            |
+| autoAddSpace.comment | 'all'         | 'all' \| 'comment' | Add space between Chinese and English in which type of text |
 
 ## License
 
