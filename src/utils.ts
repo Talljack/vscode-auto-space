@@ -9,7 +9,7 @@ export function addSpaceChineseAndEnglish(line: string) {
     line = line.replace(regexCE, (_, chinese, english) => `${chinese} ${english}`)
     line = line.replace(regexEC, (_, english, chinese) => `${english} ${chinese}`)
     changed = true
-  } while (regexCE.test(line) || regexEC.test(line));
+  } while (regexCE.test(line) || regexEC.test(line))
   return {
     line,
     changed,
