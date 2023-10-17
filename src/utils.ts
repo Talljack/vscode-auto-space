@@ -1,5 +1,4 @@
-import type { TextEditorEdit } from 'vscode'
-import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
+import { Position, Range, TextEdit, window as Window, workspace as Workspace } from 'vscode'
 
 export function addSpaceChineseAndEnglish(line: string) {
   const regexCE = /\s*?.*?([\u4E00-\u9FA5]+)([a-zA-Z0-9]+).*/
@@ -32,7 +31,7 @@ export function getAutoSapceConfig() {
 export function autoAddSpaceAll(text: string) {
   const editor = Window.activeTextEditor
   if (!editor)
-    return
+    return []
   const document = editor.document
   const lines = text.split(/\n/g)
   const updatedLines = lines?.map((line) => {
@@ -42,15 +41,13 @@ export function autoAddSpaceAll(text: string) {
   const start = new Position(0, 0)
   const end = new Position(document.lineCount, 0)
   const range = new Range(start, end)
-  editor.edit((editBuilder: TextEditorEdit) => {
-    editBuilder.replace(range, updatedText)
-  })
+  return [TextEdit.replace(range, updatedText)]
 }
 
-export async function autoAddSpaceComment(text: string) {
+export function autoAddSpaceComment(text: string) {
   const editor = Window.activeTextEditor
   if (!editor)
-    return
+    return []
   const document = editor.document
   // javascript java c++ c# php swift
   const commentRegex = /\/\/.*|\/\*[\s\S]*?\*\//gm
@@ -63,7 +60,7 @@ export async function autoAddSpaceComment(text: string) {
   const rubylines = text.match(rubyRegex)
   const lines = commonlines?.concat(pythonlines ?? []).concat(rubylines ?? [])
   if (!lines || lines?.length === 0)
-    return
+    return []
   for (let i = 0; i < lines?.length; i++) {
     const line = lines[i]
     const { line: replaceLine, changed } = addSpaceChineseAndEnglish(line)
@@ -73,8 +70,6 @@ export async function autoAddSpaceComment(text: string) {
     const start = document.positionAt(offset)
     const end = document.positionAt(offset + line.length)
     const range = new Range(start, end)
-    await editor.edit((editBuilder: TextEditorEdit) => {
-      editBuilder.replace(range, replaceLine)
-    })
+    return [TextEdit.replace(range, replaceLine)]
   }
 }
