@@ -5,11 +5,13 @@ export function addSpaceChineseAndEnglish(line: string) {
   const regexCE = /([\u4E00-\u9FA5]+)([a-zA-Z0-9]+)/
   const regexEC = /([a-zA-Z0-9]+)([\u4E00-\u9FA5]+)/
   let changed = false
-  do {
+  let matched = line.match(regexCE) || line.match(regexEC)
+  while (matched) {
     line = line.replace(regexCE, (_, chinese, english) => `${chinese} ${english}`)
     line = line.replace(regexEC, (_, english, chinese) => `${english} ${chinese}`)
+    matched = line.match(regexCE) || line.match(regexEC)
     changed = true
-  } while (regexCE.test(line) || regexEC.test(line))
+  }
   return {
     line,
     changed,
