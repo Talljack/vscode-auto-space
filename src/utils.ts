@@ -2,17 +2,14 @@ import type { TextEditorEdit } from 'vscode'
 import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
 
 export function addSpaceChineseAndEnglish(line: string) {
-  const regexCE = /\s*?.*?([\u4E00-\u9FA5]+)([a-zA-Z0-9]+).*/
-  const regexEC = /\s*?.*?([a-zA-Z0-9]+)([\u4E00-\u9FA5]+).*/
-  let match = regexCE.exec(line) || regexEC.exec(line)
+  const regexCE = /([\u4E00-\u9FA5]+)([a-zA-Z0-9]+)/
+  const regexEC = /([a-zA-Z0-9]+)([\u4E00-\u9FA5]+)/
   let changed = false
-  while (match !== null) {
-    const chinese = match[1]
-    const english = match[2]
-    line = line.replace(chinese + english, `${chinese} ${english}`)
+  do {
+    line = line.replace(regexCE, (_, chinese, english) => `${chinese} ${english}`)
+    line = line.replace(regexEC, (_, english, chinese) => `${english} ${chinese}`)
     changed = true
-    match = regexCE.exec(line) || regexEC.exec(line)
-  }
+  } while (regexCE.test(line) || regexEC.test(line))
   return {
     line,
     changed,
