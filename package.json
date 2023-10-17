@@ -49,7 +49,10 @@
         "autoAddSpace.comment": {
           "type": "string",
           "default": "all",
-          "enum": ["all", "comment"],
+          "enum": [
+            "all",
+            "comment"
+          ],
           "description": "Auto Add Space's type"
         }
       }
@@ -66,10 +69,14 @@
     "typecheck": "tsc --noEmit",
     "release": "bumpp && nr publish"
   },
+  "dependencies": {
+    "pangu": "^4.0.7"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^0.38.4",
     "@antfu/ni": "^0.21.2",
     "@types/node": "^18.15.11",
+    "@types/pangu": "^4.0.0",
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^2.15.0",
     "bumpp": "^9.1.0",

@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import type { Disposable } from 'vscode'
-import { autoAddSpaceAll, autoAddSpaceComment, getAutoSapceConfig } from './utils'
+import { autoAddSpace, getAutoSapceConfig } from './utils'
 
 let autoAddSpaceListener: Disposable
 let configurationListener: Disposable
@@ -13,11 +13,7 @@ export function activate(context: vscode.ExtensionContext) {
 
     const document = editor.document
     const text = document.getText()
-    const { comment } = getAutoSapceConfig()
-    if (comment === 'all')
-      autoAddSpaceAll(text)
-    else if (comment === 'comment')
-      autoAddSpaceComment(text)
+    autoAddSpace(text)
   })
   context.subscriptions.push(autoAddSpaceListener)
 
