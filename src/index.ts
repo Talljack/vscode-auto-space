@@ -1,6 +1,6 @@
 import * as vscode from 'vscode'
 import type { Disposable } from 'vscode'
-import { autoAddSpace, getAutoSapceConfig } from './utils'
+import { autoAddSpace, getAutoSpaceConfig } from './utils'
 
 let autoAddSpaceListener: Disposable
 let configurationListener: Disposable
@@ -18,7 +18,7 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(autoAddSpaceListener)
 
   const configurationChanged = () => {
-    const { enable } = getAutoSapceConfig()
+    const { enable } = getAutoSpaceConfig()
     if (enable)
       vscode.commands.executeCommand('extension.autoAddSpace')
     else
@@ -28,7 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
   configurationListener = vscode.workspace.onDidChangeConfiguration(configurationChanged)
 
   vscode.workspace.onWillSaveTextDocument((textDocument) => {
-    const { enable } = getAutoSapceConfig()
+    const { enable } = getAutoSpaceConfig()
     if (enable)
       vscode.commands.executeCommand('extension.autoAddSpace')
     else
