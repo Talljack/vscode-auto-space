@@ -16,7 +16,7 @@ export function addSpaceChineseAndEnglish(line: string) {
   }
 }
 
-export function getAutoSapceConfig() {
+export function getAutoSpaceConfig() {
   const config = Workspace.getConfiguration('autoAddSpace')
   const enable = config.get('enable')
   const comment = config.get('comment')
@@ -31,7 +31,7 @@ export function autoAddSpace(text: string) {
   if (!editor)
     return
   const document = editor.document
-  const { enable, comment } = getAutoSapceConfig()
+  const { enable, comment } = getAutoSpaceConfig()
   if (!enable)
     return
   let lines: string[] = []
@@ -42,10 +42,10 @@ export function autoAddSpace(text: string) {
     const pythonRegex = /(\"\"\"|\'\'\')([\s\S]*?)(\"\"\"|\'\'\')|(#.*$)/gm
     // ruby
     const rubyRegex = /#\s*(.*)$/gm
-    const commonlines = text.match(commentRegex)
-    const pythonlines = text.match(pythonRegex)
-    const rubylines = text.match(rubyRegex)
-    lines = commonlines?.concat(pythonlines ?? []).concat(rubylines ?? []) as string[]
+    const commonLines = text.match(commentRegex)
+    const pythonLines = text.match(pythonRegex)
+    const rubyLines = text.match(rubyRegex)
+    lines = commonLines?.concat(pythonLines ?? []).concat(rubyLines ?? []) as string[]
   }
   else {
     lines = text.split(/\n/g)
