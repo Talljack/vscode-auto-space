@@ -10,4 +10,7 @@ export default defineConfig({
   external: [
     'vscode',
   ],
+  noExternal: [
+    'pangu',
+  ],
 })

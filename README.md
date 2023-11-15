@@ -17,6 +17,10 @@ Auto add space between Chinese and English.
 | autoAddSpace.enable  | true          | boolean            | Enable or disable this extension                            |
 | autoAddSpace.comment | 'all'         | 'all' \| 'comment' | Add space between Chinese and English in which type of text |
 
+## CHALNGELOG
+
+更多的更新日志请查看 [CHANGELOG](./CHANGELOG.md)
+
 ## License
 
 [MIT](./LICENSE) License © 2023 [Talljack](https://github.com/talljack)
