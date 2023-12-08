@@ -61,7 +61,7 @@
   "scripts": {
     "build": "tsup src/index.ts --external vscode",
     "dev": "nr build --watch",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "vscode:prepublish": "nr build",
     "publish": "vsce publish --no-dependencies",
     "pack": "vsce package --no-dependencies",
@@ -73,8 +73,8 @@
     "pangu": "^4.0.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.38.4",
-    "@antfu/ni": "^0.21.2",
+    "@antfu/eslint-config": "^2.4.3",
+    "@antfu/ni": "^0.21.12",
     "@types/node": "^20.10.4",
     "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.85.0",

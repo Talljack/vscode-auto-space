@@ -27,7 +27,7 @@ export function activate(context: vscode.ExtensionContext) {
 
   configurationListener = vscode.workspace.onDidChangeConfiguration(configurationChanged)
 
-  vscode.workspace.onWillSaveTextDocument((textDocument) => {
+  vscode.workspace.onWillSaveTextDocument(() => {
     const { enable } = getAutoSpaceConfig()
     if (enable)
       vscode.commands.executeCommand('extension.autoAddSpace')
