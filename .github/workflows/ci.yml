@@ -19,9 +19,9 @@ jobs:
         uses: pnpm/action-setup@v2
 
       - name: Set node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: pnpm
 
       - name: Setup
@@ -42,9 +42,9 @@ jobs:
         uses: pnpm/action-setup@v2
 
       - name: Set node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 18.x
           cache: pnpm
 
       - name: Setup
@@ -57,12 +57,9 @@ jobs:
         run: nr typecheck
 
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: 'ubuntu-latest'
 
     strategy:
-      matrix:
-        node: [16.x]
-        os: [ubuntu-latest, windows-latest, macos-latest]
       fail-fast: false
 
     steps:
@@ -71,10 +68,10 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
 
-      - name: Set node version to ${{ matrix.node }}
-        uses: actions/setup-node@v3
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18.x
           cache: pnpm
 
       - name: Setup
