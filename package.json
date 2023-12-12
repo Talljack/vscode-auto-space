@@ -73,7 +73,7 @@
     "pangu": "^4.0.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.4.4",
+    "@antfu/eslint-config": "^2.4.5",
     "@antfu/ni": "^0.21.12",
     "@types/node": "^20.10.4",
     "@types/pangu": "^4.0.2",
