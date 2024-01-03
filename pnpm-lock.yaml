@@ -4,59 +4,57 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  pangu:
+    specifier: ^4.0.7
+    version: 4.0.7
 
-  .:
-    dependencies:
-      pangu:
-        specifier: ^4.0.7
-        version: 4.0.7
-    devDependencies:
-      '@antfu/eslint-config':
-        specifier: ^2.6.1
-        version: 2.6.1(@vue/compiler-sfc@3.3.11)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.1.0)
-      '@antfu/ni':
-        specifier: ^0.21.12
-        version: 0.21.12
-      '@types/node':
-        specifier: ^20.10.5
-        version: 20.10.5
-      '@types/pangu':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@types/vscode':
-        specifier: ^1.85.0
-        version: 1.85.0
-      '@vscode/vsce':
-        specifier: ^2.22.0
-        version: 2.22.0
-      bumpp:
-        specifier: ^9.2.1
-        version: 9.2.1
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      esno:
-        specifier: ^4.0.0
-        version: 4.0.0
-      pnpm:
-        specifier: ^8.13.1
-        version: 8.13.1
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.3)
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-      vite:
-        specifier: ^5.0.10
-        version: 5.0.10(@types/node@20.10.5)
-      vitest:
-        specifier: ^1.1.0
-        version: 1.1.0(@types/node@20.10.5)
+devDependencies:
+  '@antfu/eslint-config':
+    specifier: ^2.6.1
+    version: 2.6.1(@vue/compiler-sfc@3.3.11)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.1.0)
+  '@antfu/ni':
+    specifier: ^0.21.12
+    version: 0.21.12
+  '@types/node':
+    specifier: ^20.10.5
+    version: 20.10.5
+  '@types/pangu':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@types/vscode':
+    specifier: ^1.85.0
+    version: 1.85.0
+  '@vscode/vsce':
+    specifier: ^2.22.0
+    version: 2.22.0
+  bumpp:
+    specifier: ^9.2.1
+    version: 9.2.1
+  eslint:
+    specifier: ^8.56.0
+    version: 8.56.0
+  esno:
+    specifier: ^4.0.0
+    version: 4.0.0
+  pnpm:
+    specifier: ^8.14.0
+    version: 8.14.0
+  rimraf:
+    specifier: ^5.0.5
+    version: 5.0.5
+  tsup:
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.3.3)
+  typescript:
+    specifier: ^5.3.3
+    version: 5.3.3
+  vite:
+    specifier: ^5.0.10
+    version: 5.0.10(@types/node@20.10.5)
+  vitest:
+    specifier: ^1.1.0
+    version: 1.1.0(@types/node@20.10.5)
 
 packages:
 
@@ -2369,7 +2367,7 @@ packages:
     dev: true
 
   /estree-walker@2.0.2:
-    resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==, tarball: https://r2.cnpmjs.org/estree-walker/-/estree-walker-2.0.2.tgz}
+    resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
     dev: true
 
   /esutils@2.0.3:
@@ -3531,8 +3529,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /pnpm@8.13.1:
-    resolution: {integrity: sha512-dYvrxpictkYsUTgSmEAZOxDCWN3NsKtD7g753Yd4S8IY1uQctb7qw2K4zjPx+LCAJbWZkzwLzoIFCpo2uEdNQw==}
+  /pnpm@8.14.0:
+    resolution: {integrity: sha512-XUv5ezSfrxpRMYqhuoh+mdnDbiA9vLVZOKkf3dJFQkbLAHI9ZkL1TUY6D1KicB2t+N4AKjf8YTyc3JTtVnXdzg==}
     engines: {node: '>=16.14'}
     hasBin: true
     dev: true
@@ -4121,7 +4119,7 @@ packages:
     dev: true
 
   /to-fast-properties@2.0.0:
-    resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==, tarball: https://r2.cnpmjs.org/to-fast-properties/-/to-fast-properties-2.0.0.tgz}
+    resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
     dev: true
 
