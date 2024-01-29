@@ -4,56 +4,54 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  pangu:
+    specifier: ^4.0.7
+    version: 4.0.7
 
-  .:
-    dependencies:
-      pangu:
-        specifier: ^4.0.7
-        version: 4.0.7
-    devDependencies:
-      '@antfu/eslint-config':
-        specifier: ^2.6.3
-        version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.1)
-      '@antfu/ni':
-        specifier: ^0.21.12
-        version: 0.21.12
-      '@types/node':
-        specifier: ^20.11.6
-        version: 20.11.6
-      '@types/pangu':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@types/vscode':
-        specifier: ^1.85.0
-        version: 1.85.0
-      '@vscode/vsce':
-        specifier: ^2.22.0
-        version: 2.22.0
-      bumpp:
-        specifier: ^9.3.0
-        version: 9.3.0
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      pnpm:
-        specifier: ^8.14.3
-        version: 8.14.3
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.3)
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-      vite:
-        specifier: ^5.0.12
-        version: 5.0.12(@types/node@20.11.6)
-      vitest:
-        specifier: ^1.2.1
-        version: 1.2.1(@types/node@20.11.6)
+devDependencies:
+  '@antfu/eslint-config':
+    specifier: ^2.6.3
+    version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.1)
+  '@antfu/ni':
+    specifier: ^0.21.12
+    version: 0.21.12
+  '@types/node':
+    specifier: ^20.11.10
+    version: 20.11.10
+  '@types/pangu':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@types/vscode':
+    specifier: ^1.85.0
+    version: 1.85.0
+  '@vscode/vsce':
+    specifier: ^2.22.0
+    version: 2.22.0
+  bumpp:
+    specifier: ^9.3.0
+    version: 9.3.0
+  eslint:
+    specifier: ^8.56.0
+    version: 8.56.0
+  pnpm:
+    specifier: ^8.14.3
+    version: 8.14.3
+  rimraf:
+    specifier: ^5.0.5
+    version: 5.0.5
+  tsup:
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.3.3)
+  typescript:
+    specifier: ^5.3.3
+    version: 5.3.3
+  vite:
+    specifier: ^5.0.12
+    version: 5.0.12(@types/node@20.11.10)
+  vitest:
+    specifier: ^1.2.1
+    version: 1.2.1(@types/node@20.11.10)
 
 packages:
 
@@ -758,8 +756,8 @@ packages:
       '@types/unist': 2.0.10
     dev: true
 
-  /@types/node@20.11.6:
-    resolution: {integrity: sha512-+EOokTnksGVgip2PbYbr3xnR7kZigh4LbybAfBAw5BpnQ+FqBYUsvCEjYd70IXKlbohQ64mzEYmMtlWUY8q//Q==}
+  /@types/node@20.11.10:
+    resolution: {integrity: sha512-rZEfe/hJSGYmdfX9tvcPMYeYPW2sNl50nsw4jZmRcaG0HIAb0WYEpsB05GOb53vjqpyE9GUhlDQ4jLSoB5q9kg==}
     dependencies:
       undici-types: 5.26.5
     dev: true
@@ -2055,7 +2053,7 @@ packages:
       '@typescript-eslint/eslint-plugin': 6.19.0(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)(typescript@5.3.3)
       '@typescript-eslint/utils': 6.18.1(eslint@8.56.0)(typescript@5.3.3)
       eslint: 8.56.0
-      vitest: 1.2.1(@types/node@20.11.6)
+      vitest: 1.2.1(@types/node@20.11.10)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -4132,7 +4130,7 @@ packages:
       spdx-expression-parse: 3.0.1
     dev: true
 
-  /vite-node@1.2.1(@types/node@20.11.6):
+  /vite-node@1.2.1(@types/node@20.11.10):
     resolution: {integrity: sha512-fNzHmQUSOY+y30naohBvSW7pPn/xn3Ib/uqm+5wAJQJiqQsU0NBR78XdRJb04l4bOFKjpTWld0XAfkKlrDbySg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4141,7 +4139,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.1
       picocolors: 1.0.0
-      vite: 5.0.12(@types/node@20.11.6)
+      vite: 5.0.12(@types/node@20.11.10)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -4153,7 +4151,7 @@ packages:
       - terser
     dev: true
 
-  /vite@5.0.12(@types/node@20.11.6):
+  /vite@5.0.12(@types/node@20.11.10):
     resolution: {integrity: sha512-4hsnEkG3q0N4Tzf1+t6NdN9dg/L3BM+q8SWgbSPnJvrgH2kgdyzfVJwbR1ic69/4uMJJ/3dqDZZE5/WwqW8U1w==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4181,7 +4179,7 @@ packages:
       terser:
         optional: true
     dependencies:
-      '@types/node': 20.11.6
+      '@types/node': 20.11.10
       esbuild: 0.19.11
       postcss: 8.4.33
       rollup: 4.9.4
@@ -4189,7 +4187,7 @@ packages:
       fsevents: 2.3.3
     dev: true
 
-  /vitest@1.2.1(@types/node@20.11.6):
+  /vitest@1.2.1(@types/node@20.11.10):
     resolution: {integrity: sha512-TRph8N8rnSDa5M2wKWJCMnztCZS9cDcgVTQ6tsTFTG/odHJ4l5yNVqvbeDJYJRZ6is3uxaEpFs8LL6QM+YFSdA==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
@@ -4214,7 +4212,7 @@ packages:
       jsdom:
         optional: true
     dependencies:
-      '@types/node': 20.11.6
+      '@types/node': 20.11.10
       '@vitest/expect': 1.2.1
       '@vitest/runner': 1.2.1
       '@vitest/snapshot': 1.2.1
@@ -4233,8 +4231,8 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.5.1
       tinypool: 0.8.1
-      vite: 5.0.12(@types/node@20.11.6)
-      vite-node: 1.2.1(@types/node@20.11.6)
+      vite: 5.0.12(@types/node@20.11.10)
+      vite-node: 1.2.1(@types/node@20.11.10)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
       - less
