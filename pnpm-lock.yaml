@@ -4,56 +4,54 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  pangu:
+    specifier: ^4.0.7
+    version: 4.0.7
 
-  .:
-    dependencies:
-      pangu:
-        specifier: ^4.0.7
-        version: 4.0.7
-    devDependencies:
-      '@antfu/eslint-config':
-        specifier: ^2.6.3
-        version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.1)
-      '@antfu/ni':
-        specifier: ^0.21.12
-        version: 0.21.12
-      '@types/node':
-        specifier: ^20.11.6
-        version: 20.11.6
-      '@types/pangu':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@types/vscode':
-        specifier: ^1.85.0
-        version: 1.85.0
-      '@vscode/vsce':
-        specifier: ^2.22.0
-        version: 2.22.0
-      bumpp:
-        specifier: ^9.3.0
-        version: 9.3.0
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      pnpm:
-        specifier: ^8.14.3
-        version: 8.14.3
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.3)
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-      vite:
-        specifier: ^5.0.12
-        version: 5.0.12(@types/node@20.11.6)
-      vitest:
-        specifier: ^1.2.1
-        version: 1.2.1(@types/node@20.11.6)
+devDependencies:
+  '@antfu/eslint-config':
+    specifier: ^2.6.3
+    version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.1)
+  '@antfu/ni':
+    specifier: ^0.21.12
+    version: 0.21.12
+  '@types/node':
+    specifier: ^20.11.6
+    version: 20.11.6
+  '@types/pangu':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@types/vscode':
+    specifier: ^1.85.0
+    version: 1.85.0
+  '@vscode/vsce':
+    specifier: ^2.23.0
+    version: 2.23.0
+  bumpp:
+    specifier: ^9.3.0
+    version: 9.3.0
+  eslint:
+    specifier: ^8.56.0
+    version: 8.56.0
+  pnpm:
+    specifier: ^8.14.3
+    version: 8.14.3
+  rimraf:
+    specifier: ^5.0.5
+    version: 5.0.5
+  tsup:
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.3.3)
+  typescript:
+    specifier: ^5.3.3
+    version: 5.3.3
+  vite:
+    specifier: ^5.0.12
+    version: 5.0.12(@types/node@20.11.6)
+  vitest:
+    specifier: ^1.2.1
+    version: 1.2.1(@types/node@20.11.6)
 
 packages:
 
@@ -1021,8 +1019,8 @@ packages:
       pretty-format: 29.7.0
     dev: true
 
-  /@vscode/vsce@2.22.0:
-    resolution: {integrity: sha512-8df4uJiM3C6GZ2Sx/KilSKVxsetrTBBIUb3c0W4B1EWHcddioVs5mkyDKtMNP0khP/xBILVSzlXxhV+nm2rC9A==}
+  /@vscode/vsce@2.23.0:
+    resolution: {integrity: sha512-Wf9yN8feZf4XmUW/erXyKQvCL577u72AQv4AI4Cwt5o5NyE49C5mpfw3pN78BJYYG3qnSIxwRo7JPvEurkQuNA==}
     engines: {node: '>= 14'}
     hasBin: true
     dependencies:
@@ -1030,6 +1028,7 @@ packages:
       chalk: 2.4.2
       cheerio: 1.0.0-rc.12
       commander: 6.2.1
+      find-yarn-workspace-root: 2.0.0
       glob: 7.2.3
       hosted-git-info: 4.1.0
       jsonc-parser: 3.2.0
@@ -2313,6 +2312,12 @@ packages:
     dependencies:
       locate-path: 6.0.0
       path-exists: 4.0.0
+    dev: true
+
+  /find-yarn-workspace-root@2.0.0:
+    resolution: {integrity: sha512-1IMnbjt4KzsQfnhnzNd8wUEgXZ44IzZaZmnLYx7D5FZlaHt2gW20Cri8Q+E/t5tIj4+epTBub+2Zxu/vNILzqQ==}
+    dependencies:
+      micromatch: 4.0.5
     dev: true
 
   /flat-cache@3.2.0:
