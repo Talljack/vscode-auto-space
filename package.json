@@ -75,7 +75,7 @@
   "devDependencies": {
     "@antfu/eslint-config": "^2.6.3",
     "@antfu/ni": "^0.21.12",
-    "@types/node": "^20.11.13",
+    "@types/node": "^20.11.14",
     "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.85.0",
     "@vscode/vsce": "^2.23.0",
