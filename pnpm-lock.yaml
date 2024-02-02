@@ -4,56 +4,54 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-importers:
+dependencies:
+  pangu:
+    specifier: ^4.0.7
+    version: 4.0.7
 
-  .:
-    dependencies:
-      pangu:
-        specifier: ^4.0.7
-        version: 4.0.7
-    devDependencies:
-      '@antfu/eslint-config':
-        specifier: ^2.6.3
-        version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.2)
-      '@antfu/ni':
-        specifier: ^0.21.12
-        version: 0.21.12
-      '@types/node':
-        specifier: ^20.11.13
-        version: 20.11.13
-      '@types/pangu':
-        specifier: ^4.0.2
-        version: 4.0.2
-      '@types/vscode':
-        specifier: ^1.85.0
-        version: 1.85.0
-      '@vscode/vsce':
-        specifier: ^2.23.0
-        version: 2.23.0
-      bumpp:
-        specifier: ^9.3.0
-        version: 9.3.0
-      eslint:
-        specifier: ^8.56.0
-        version: 8.56.0
-      pnpm:
-        specifier: ^8.15.1
-        version: 8.15.1
-      rimraf:
-        specifier: ^5.0.5
-        version: 5.0.5
-      tsup:
-        specifier: ^8.0.1
-        version: 8.0.1(typescript@5.3.3)
-      typescript:
-        specifier: ^5.3.3
-        version: 5.3.3
-      vite:
-        specifier: ^5.0.12
-        version: 5.0.12(@types/node@20.11.13)
-      vitest:
-        specifier: ^1.2.2
-        version: 1.2.2(@types/node@20.11.13)
+devDependencies:
+  '@antfu/eslint-config':
+    specifier: ^2.6.3
+    version: 2.6.3(@vue/compiler-sfc@3.4.7)(eslint@8.56.0)(typescript@5.3.3)(vitest@1.2.2)
+  '@antfu/ni':
+    specifier: ^0.21.12
+    version: 0.21.12
+  '@types/node':
+    specifier: ^20.11.13
+    version: 20.11.13
+  '@types/pangu':
+    specifier: ^4.0.2
+    version: 4.0.2
+  '@types/vscode':
+    specifier: ^1.86.0
+    version: 1.86.0
+  '@vscode/vsce':
+    specifier: ^2.23.0
+    version: 2.23.0
+  bumpp:
+    specifier: ^9.3.0
+    version: 9.3.0
+  eslint:
+    specifier: ^8.56.0
+    version: 8.56.0
+  pnpm:
+    specifier: ^8.15.1
+    version: 8.15.1
+  rimraf:
+    specifier: ^5.0.5
+    version: 5.0.5
+  tsup:
+    specifier: ^8.0.1
+    version: 8.0.1(typescript@5.3.3)
+  typescript:
+    specifier: ^5.3.3
+    version: 5.3.3
+  vite:
+    specifier: ^5.0.12
+    version: 5.0.12(@types/node@20.11.13)
+  vitest:
+    specifier: ^1.2.2
+    version: 1.2.2(@types/node@20.11.13)
 
 packages:
 
@@ -780,8 +778,8 @@ packages:
     resolution: {integrity: sha512-IfYcSBWE3hLpBg8+X2SEa8LVkJdJEkT2Ese2aaLs3ptGdVtABxndrMaxuFlQ1qdFf9Q5rDvDpxI3WwgvKFAsQA==}
     dev: true
 
-  /@types/vscode@1.85.0:
-    resolution: {integrity: sha512-CF/RBon/GXwdfmnjZj0WTUMZN5H6YITOfBCP4iEZlOtVQXuzw6t7Le7+cR+7JzdMrnlm7Mfp49Oj2TuSXIWo3g==}
+  /@types/vscode@1.86.0:
+    resolution: {integrity: sha512-DnIXf2ftWv+9LWOB5OJeIeaLigLHF7fdXF6atfc7X5g2w/wVZBgk0amP7b+ub5xAuW1q7qP5YcFvOcit/DtyCQ==}
     dev: true
 
   /@typescript-eslint/eslint-plugin@6.19.0(@typescript-eslint/parser@6.19.0)(eslint@8.56.0)(typescript@5.3.3):
