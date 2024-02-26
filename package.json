@@ -78,7 +78,7 @@
     "@types/node": "^20.11.20",
     "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.86.0",
-    "@vscode/vsce": "^2.23.0",
+    "@vscode/vsce": "^2.24.0",
     "bumpp": "^9.3.0",
     "eslint": "^8.56.0",
     "pnpm": "^8.15.3",
