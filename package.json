@@ -84,7 +84,7 @@
     "pnpm": "^8.15.6",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
-    "typescript": "^5.4.3",
+    "typescript": "^5.4.4",
     "vite": "^5.2.7",
     "vitest": "^1.4.0"
   }
