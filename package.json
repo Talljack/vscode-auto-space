@@ -73,14 +73,14 @@
     "pangu": "^4.0.7"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.12.1",
+    "@antfu/eslint-config": "^2.13.0",
     "@antfu/ni": "^0.21.12",
-    "@types/node": "^20.12.4",
+    "@types/node": "^20.12.6",
     "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.88.0",
     "@vscode/vsce": "^2.24.0",
     "bumpp": "^9.4.0",
-    "eslint": "^8.57.0",
+    "eslint": "^9.0.0",
     "pnpm": "^8.15.6",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
