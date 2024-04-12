@@ -1,3 +1,9 @@
+# 1.3.6
+
+## Fixes
+
+- 修复 `markdown` 加粗语法失效[issue](https://github.com/Talljack/vscode-auto-space/issues/140)。
+
 # 1.3.5
 
 ## Fix
