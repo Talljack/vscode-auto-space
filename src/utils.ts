@@ -2,18 +2,28 @@ import type { TextEditorEdit } from 'vscode'
 import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
 import pangu from 'pangu'
 
-export function addSpaceChineseAndEnglish(line: string) {
-  const regexCE = /([\u4E00-\u9FA5]+)([a-zA-Z0-9]+)/
-  const regexEC = /([a-zA-Z0-9]+)([\u4E00-\u9FA5]+)/
-  let changed = false
-  do {
-    line = pangu.spacing(line)
-    changed = true
-  } while (line.match(regexCE) || line.match(regexEC))
+function escapeMarkdown(text: string) {
+  const replacements: string[] = []
+  const placeholder = '%%PLACEHOLDER%%'
+  const reg = /\*\*\*[^\*]*\*\*\*|\*\*[^\*]*\*\*|\*[^\*]*\*|~~[^~]*~~/g
+  const escapedText = text.replace(reg, (match) => {
+    replacements.push(match)
+    return `${placeholder}${replacements.length - 1}%%`
+  })
   return {
-    line,
-    changed,
+    escapedText,
+    replacements,
   }
+}
+
+function restoreMarkdown(replacedText: string, replacements: string[]) {
+  return replacedText.replace(/%%\s?PLACEHOLDER%%(\d+)%%/g, (match, index) => {
+    const originalText = replacements[Number.parseInt(index, 10)]
+    if (!originalText)
+      return match
+    return originalText.replace(/([\u4E00-\u9FA5])([a-zA-Z])/g, '$1 $2')
+      .replace(/([a-zA-Z])([\u4E00-\u9FA5])/g, '$1 $2')
+  })
 }
 
 export function getAutoSpaceConfig() {
@@ -31,6 +41,7 @@ export function autoAddSpace(text: string) {
   if (!editor)
     return
   const document = editor.document
+  const lang = document.languageId
   const { enable, comment } = getAutoSpaceConfig()
   if (!enable)
     return
@@ -51,7 +62,15 @@ export function autoAddSpace(text: string) {
     lines = text.split(/\n/g)
   }
   const updatedLines = lines?.map((line) => {
-    return pangu.spacing(line)
+    // markdown 语法加粗问题
+    if (lang === 'markdown') {
+      const { escapedText, replacements } = escapeMarkdown(line)
+      const spacedText = pangu.spacing(escapedText)
+      return restoreMarkdown(spacedText, replacements)
+    }
+    else {
+      return pangu.spacing(line)
+    }
   })
   const updatedText = updatedLines.join('\n')
   const start = new Position(0, 0)
