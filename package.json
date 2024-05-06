@@ -80,7 +80,7 @@
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^2.25.0",
     "bumpp": "^9.4.0",
-    "eslint": "^9.0.0",
+    "eslint": "^9.2.0",
     "pnpm": "^9.0.1",
     "rimraf": "^5.0.5",
     "tsup": "^8.0.2",
