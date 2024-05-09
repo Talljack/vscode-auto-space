@@ -5,6 +5,10 @@ import { autoAddSpace, getAutoSpaceConfig } from './utils'
 let autoAddSpaceListener: Disposable
 let configurationListener: Disposable
 
+/**
+ *
+ * @param context
+ */
 export function activate(context: vscode.ExtensionContext) {
   const autoAddSpaceListener = vscode.commands.registerCommand('extension.autoAddSpace', () => {
     const editor = vscode.window.activeTextEditor
@@ -36,6 +40,9 @@ export function activate(context: vscode.ExtensionContext) {
   })
 }
 
+/**
+ *
+ */
 export function deactivate() {
   autoAddSpaceListener.dispose()
   configurationListener.dispose()
