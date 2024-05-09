@@ -2,9 +2,14 @@ import type { TextEditorEdit } from 'vscode'
 import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
 import pangu from 'pangu'
 
+/**
+ *
+ * @param text
+ */
 function escapeMarkdown(text: string) {
   const replacements: string[] = []
   const placeholder = '%%PLACEHOLDER%%'
+  // eslint-disable-next-line no-useless-escape
   const reg = /\*\*\*[^\*]*\*\*\*|\*\*[^\*]*\*\*|\*[^\*]*\*|~~[^~]*~~/g
   const escapedText = text.replace(reg, (match) => {
     replacements.push(match)
@@ -16,6 +21,11 @@ function escapeMarkdown(text: string) {
   }
 }
 
+/**
+ *
+ * @param replacedText
+ * @param replacements
+ */
 function restoreMarkdown(replacedText: string, replacements: string[]) {
   return replacedText.replace(/%%\s?PLACEHOLDER%%(\d+)%%/g, (match, index) => {
     const originalText = replacements[Number.parseInt(index, 10)]
@@ -26,6 +36,9 @@ function restoreMarkdown(replacedText: string, replacements: string[]) {
   })
 }
 
+/**
+ *
+ */
 export function getAutoSpaceConfig() {
   const config = Workspace.getConfiguration('autoAddSpace')
   const enable = config.get('enable')
@@ -36,6 +49,10 @@ export function getAutoSpaceConfig() {
   }
 }
 
+/**
+ *
+ * @param text
+ */
 export function autoAddSpace(text: string) {
   const editor = Window.activeTextEditor
   if (!editor)
@@ -50,7 +67,7 @@ export function autoAddSpace(text: string) {
     // javascript java c++ c# php swift
     const commentRegex = /\/\/.*|\/\*[\s\S]*?\*\//gm
     // python
-    const pythonRegex = /(\"\"\"|\'\'\')([\s\S]*?)(\"\"\"|\'\'\')|(#.*$)/gm
+    const pythonRegex = /("""|''')([\s\S]*?)("""|''')|(#.*$)/gm
     // ruby
     const rubyRegex = /#\s*(.*)$/gm
     const commonLines = text.match(commentRegex)
