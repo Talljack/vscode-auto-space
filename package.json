@@ -82,7 +82,7 @@
     "eslint": "^9.2.0",
     "pnpm": "^9.0.1",
     "rimraf": "^5.0.5",
-    "talljack-eslint-config": "^0.2.4",
+    "talljack-eslint-config": "^0.2.6",
     "tsup": "^8.0.2",
     "typescript": "^5.4.5",
     "vite": "^5.2.11",
