@@ -74,18 +74,18 @@
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.12",
-    "@types/node": "^20.14.5",
+    "@types/node": "^20.14.10",
     "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.69.0",
-    "@vscode/vsce": "^2.27.0",
+    "@vscode/vsce": "^2.29.0",
     "bumpp": "^9.4.1",
-    "eslint": "^9.5.0",
-    "pnpm": "^9.4.0",
-    "rimraf": "^5.0.7",
+    "eslint": "^9.6.0",
+    "pnpm": "^9.5.0",
+    "rimraf": "^5.0.8",
     "talljack-eslint-config": "^0.2.6",
     "tsup": "^8.1.0",
-    "typescript": "^5.4.5",
-    "vite": "^5.3.1",
+    "typescript": "^5.5.3",
+    "vite": "^5.3.3",
     "vitest": "^1.6.0"
   }
 }
