@@ -1,6 +1,7 @@
 import type { TextEditorEdit } from 'vscode'
 import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
 import pangu from 'pangu'
+import { customSpacing } from './handler'
 
 /**
  *
@@ -86,7 +87,7 @@ export function autoAddSpace(text: string) {
       return restoreMarkdown(spacedText, replacements)
     }
     else {
-      return pangu.spacing(line)
+      return customSpacing(line)
     }
   })
   const updatedText = updatedLines.join('\n')
