@@ -7,6 +7,15 @@ let configurationListener: Disposable
 
 /**
  *
+ * @param document
+ */
+async function formatDocument(document: vscode.TextDocument) {
+  const text = document.getText()
+  return autoAddSpace(text)
+}
+
+/**
+ *
  * @param context
  */
 export function activate(context: vscode.ExtensionContext) {
@@ -21,23 +30,44 @@ export function activate(context: vscode.ExtensionContext) {
   })
   context.subscriptions.push(autoAddSpaceListener)
 
-  const configurationChanged = () => {
-    const { enable } = getAutoSpaceConfig()
-    if (enable)
-      vscode.commands.executeCommand('extension.autoAddSpace')
-    else
-      autoAddSpaceListener.dispose()
+  vscode.workspace.onWillSaveTextDocument((event) => {
+    const { formatOnSave } = getAutoSpaceConfig()
+    if (formatOnSave)
+      event.waitUntil(formatDocument(event.document))
+  })
+  // 监听格式化文档命令
+  const formattingProvider = vscode.languages.registerDocumentFormattingEditProvider('*', {
+    provideDocumentFormattingEdits: (document) => {
+      const { formatOnDocument } = getAutoSpaceConfig()
+      if (formatOnDocument && isFormatDocumentCommand())
+        return formatDocument(document)
+
+      return []
+    },
+  })
+  context.subscriptions.push(formattingProvider)
+  // 全局变量来跟踪当前操作
+  let isFormatDocumentCommandActive = false
+  // 注册一个命令来设置标志
+  const formatDocumentCommand = vscode.commands.registerCommand('editor.action.formatDocument', async () => {
+    isFormatDocumentCommandActive = true
+    try {
+      await vscode.commands.executeCommand('editor.action.formatDocument.multiple')
+    }
+    finally {
+      isFormatDocumentCommandActive = false
+    }
+  })
+
+  /**
+   *
+   */
+  function isFormatDocumentCommand() {
+    return isFormatDocumentCommandActive
   }
 
-  configurationListener = vscode.workspace.onDidChangeConfiguration(configurationChanged)
-
-  vscode.workspace.onWillSaveTextDocument(() => {
-    const { enable } = getAutoSpaceConfig()
-    if (enable)
-      vscode.commands.executeCommand('extension.autoAddSpace')
-    else
-      autoAddSpaceListener.dispose()
-  })
+  // 在 activate 函数中添加这个命令
+  context.subscriptions.push(formatDocumentCommand)
 }
 
 /**

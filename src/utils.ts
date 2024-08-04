@@ -1,7 +1,7 @@
-import type { TextEditorEdit } from 'vscode'
-import { Position, Range, window as Window, workspace as Workspace } from 'vscode'
-import pangu from 'pangu'
+// import type { TextEditorEdit } from 'vscode'
+import { Range, TextEdit, window as Window, workspace as Workspace } from 'vscode'
 import { customSpacing } from './handler'
+import type { AutoSpaceConfigType } from './type'
 
 /**
  *
@@ -11,7 +11,7 @@ function escapeMarkdown(text: string) {
   const replacements: string[] = []
   const placeholder = '%%PLACEHOLDER%%'
   // eslint-disable-next-line no-useless-escape
-  const reg = /\*\*\*[^\*]*\*\*\*|\*\*[^\*]*\*\*|\*[^\*]*\*|~~[^~]*~~/g
+  const reg = /\*\*\*[^\*]*\*\*\*|\*\*[^\*]*\*\*|\*[^\*]*\*|~~[^~]*~~|`[^`]*`/g
   const escapedText = text.replace(reg, (match) => {
     replacements.push(match)
     return `${placeholder}${replacements.length - 1}%%`
@@ -40,13 +40,16 @@ function restoreMarkdown(replacedText: string, replacements: string[]) {
 /**
  *
  */
-export function getAutoSpaceConfig() {
+export function getAutoSpaceConfig(): AutoSpaceConfigType {
   const config = Workspace.getConfiguration('autoAddSpace')
-  const enable = config.get('enable')
-  const comment = config.get('comment')
+  // const enable = config.get('enable')
+  const formatOnSave = config.get('formatOnSave') as boolean
+  const formatOnDocument = config.get('formatOnDocument') as boolean
+  const spaceType = config.get('spaceType') as AutoSpaceConfigType['spaceType']
   return {
-    enable,
-    comment,
+    formatOnSave,
+    formatOnDocument,
+    spaceType,
   }
 }
 
@@ -60,11 +63,9 @@ export function autoAddSpace(text: string) {
     return
   const document = editor.document
   const lang = document.languageId
-  const { enable, comment } = getAutoSpaceConfig()
-  if (!enable)
-    return
+  const { spaceType } = getAutoSpaceConfig()
   let lines: string[] = []
-  if (comment === 'comment') {
+  if (spaceType === 'comment') {
     // javascript java c++ c# php swift
     const commentRegex = /\/\/.*|\/\*[\s\S]*?\*\//gm
     // python
@@ -83,7 +84,7 @@ export function autoAddSpace(text: string) {
     // markdown 语法加粗问题
     if (lang === 'markdown') {
       const { escapedText, replacements } = escapeMarkdown(line)
-      const spacedText = pangu.spacing(escapedText)
+      const spacedText = customSpacing(escapedText)
       return restoreMarkdown(spacedText, replacements)
     }
     else {
@@ -91,10 +92,15 @@ export function autoAddSpace(text: string) {
     }
   })
   const updatedText = updatedLines.join('\n')
-  const start = new Position(0, 0)
-  const end = new Position(document.lineCount, 0)
-  const range = new Range(start, end)
-  editor.edit((editBuilder: TextEditorEdit) => {
-    editBuilder.replace(range, updatedText)
-  })
+  // const start = new Position(0, 0)
+  // const end = new Position(document.lineCount, 0)
+  // const range = new Range(start, end)
+  // editor.edit((editBuilder: TextEditorEdit) => {
+  //   editBuilder.replace(range, updatedText)
+  // })
+  const fullRange = new Range(
+    document.positionAt(0),
+    document.positionAt(text.length),
+  )
+  return [TextEdit.replace(fullRange, updatedText)]
 }

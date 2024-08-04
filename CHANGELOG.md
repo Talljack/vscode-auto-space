@@ -1,3 +1,14 @@
+# 1.3.7
+
+## Fixes
+
+- 重写中英文增加空格的逻辑，删除 `pangu` 包
+- 修改参数名，详见 [README.md](./README.md)
+
+## Tests
+
+- 增加 test
+
 # 1.3.6
 
 ## Fixes

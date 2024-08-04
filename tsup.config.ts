@@ -4,13 +4,10 @@ export default defineConfig({
   entry: [
     'src/index.ts',
   ],
-  format: ['cjs'],
+  format: ['cjs', 'esm'],
   shims: false,
   dts: false,
   external: [
     'vscode',
-  ],
-  noExternal: [
-    'pangu',
   ],
 })

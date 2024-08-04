@@ -2,7 +2,7 @@
   "publisher": "talljack",
   "name": "vscode-auto-space",
   "displayName": "Auto Add Space between Chinese and English",
-  "version": "1.3.6",
+  "version": "1.4.0",
   "private": true,
   "packageManager": "pnpm@9.6.0",
   "description": "Auto add space between Chinese and English when you save file",
@@ -41,12 +41,17 @@
     "configuration": {
       "title": "Auto Add Space configuration",
       "properties": {
-        "autoAddSpace.enable": {
+        "autoAddSpace.formatOnSave": {
           "type": "boolean",
           "default": true,
-          "description": "Enable Auto Add Space"
+          "description": "Execute auto add space when on file save"
         },
-        "autoAddSpace.comment": {
+        "autoAddSpace.formatOnDocument": {
+          "type": "boolean",
+          "default": false,
+          "description": "Execute add space on Format Document command"
+        },
+        "autoAddSpace.spaceType": {
           "type": "string",
           "default": "all",
           "enum": [
@@ -70,12 +75,11 @@
     "release": "bumpp && nr publish"
   },
   "dependencies": {
-    "pangu": "^4.0.7"
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@antfu/ni": "^0.22.0",
     "@types/node": "22.1.0",
-    "@types/pangu": "^4.0.2",
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^2.31.1",
     "bumpp": "^9.4.2",
