@@ -1,5 +1,12 @@
-src
 node_modules
-test
-.github
-.vscode
+test/**
+.github/**
+.vscode/**
+.vscode-test/**
+out/test/**
+src/**
+.gitignore
+vsc-extension-quickstart.md
+**/tsconfig.json
+**/*.map
+**/*.ts
