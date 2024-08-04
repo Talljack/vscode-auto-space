@@ -12,10 +12,11 @@ Auto add space between Chinese and English.
 
 ## Configuration
 
-| key                  | default-value | type               | description                                                 |
-| -------------------- | ------------- | ------------------ | ----------------------------------------------------------- |
-| autoAddSpace.enable  | true          | boolean            | Enable or disable this extension                            |
-| autoAddSpace.comment | 'all'         | 'all' \| 'comment' | Add space between Chinese and English in which type of text |
+| key                          | default-value | type               | description                                  |
+| ---------------------------- | ------------- | ------------------ | -------------------------------------------- |
+| autoAddSpace.formatOnSave    | true          | boolean            | Execute auto add space when on file save     |
+| autoAddSpace.formatOnDocument | false         | boolean            | Execute add space on Format Document command |
+| autoAddSpace.spaceType       | 'all'         | 'all' \| 'comment' | Auto Add Space's type                        |
 
 ## CHALNGELOG
 
