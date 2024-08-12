@@ -80,7 +80,7 @@
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^2.31.1",
     "bumpp": "^9.4.2",
-    "eslint": "9.8.0",
+    "eslint": "9.9.0",
     "pnpm": "^9.6.0",
     "rimraf": "^6.0.1",
     "talljack-eslint-config": "^0.2.6",
