@@ -78,7 +78,7 @@
     "@antfu/ni": "^0.22.0",
     "@types/node": "22.1.0",
     "@types/vscode": "^1.69.0",
-    "@vscode/vsce": "^2.31.1",
+    "@vscode/vsce": "^3.0.0",
     "bumpp": "^9.4.2",
     "eslint": "9.8.0",
     "pnpm": "^9.7.0",
