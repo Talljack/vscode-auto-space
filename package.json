@@ -4,7 +4,7 @@
   "displayName": "Auto Add Space between Chinese and English",
   "version": "1.4.0",
   "private": true,
-  "packageManager": "pnpm@9.7.0",
+  "packageManager": "pnpm@9.7.1",
   "description": "Auto add space between Chinese and English when you save file",
   "author": "Talljack<yugang.cao12@gmail.com>",
   "license": "MIT",
@@ -75,18 +75,18 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.22.0",
-    "@types/node": "22.1.0",
+    "@antfu/ni": "^0.22.4",
+    "@types/node": "22.4.2",
     "@types/vscode": "^1.69.0",
-    "@vscode/vsce": "^2.31.1",
-    "bumpp": "^9.4.2",
-    "eslint": "9.8.0",
-    "pnpm": "^9.7.0",
+    "@vscode/vsce": "^3.0.0",
+    "bumpp": "^9.5.1",
+    "eslint": "9.9.0",
+    "pnpm": "^9.7.1",
     "rimraf": "^6.0.1",
     "talljack-eslint-config": "^0.2.6",
     "tsup": "^8.2.4",
     "typescript": "^5.5.4",
-    "vite": "^5.4.0",
+    "vite": "^5.4.2",
     "vitest": "^2.0.5"
   }
 }
