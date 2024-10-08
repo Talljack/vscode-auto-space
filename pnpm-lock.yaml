@@ -31,8 +31,8 @@ importers:
         specifier: 9.9.0
         version: 9.9.0(jiti@1.21.6)
       pnpm:
-        specifier: ^9.7.1
-        version: 9.7.1
+        specifier: ^9.12.1
+        version: 9.12.1
       rimraf:
         specifier: ^6.0.1
         version: 6.0.1
@@ -2473,8 +2473,8 @@ packages:
   pkg-types@1.1.3:
     resolution: {integrity: sha512-+JrgthZG6m3ckicaOB74TwQ+tBWsFl3qVQg7mN8ulwSOElJ7gBhKzj2VkCPnZ4NlF6kEquYU+RIYNVAvzd54UA==}
 
-  pnpm@9.7.1:
-    resolution: {integrity: sha512-+vNEry1splxMXIwiJOp3qBpeiFnLxOBrFRHdzi8BUVEkMd0Z5q/zHyxqj18qztm9InPh/tfdTeGGiYQFnSxCRw==}
+  pnpm@9.12.1:
+    resolution: {integrity: sha512-5aflKkGDoC1ZMQV/eg2/+dXpzjFh4z+miuOSElt5KCqKikcKUd/IoO2GIhRC6y+1cBmwmQ7ST6tRm/DhvFzPxA==}
     engines: {node: '>=18.12'}
     hasBin: true
 
@@ -5783,7 +5783,7 @@ snapshots:
       mlly: 1.7.1
       pathe: 1.1.2
 
-  pnpm@9.7.1: {}
+  pnpm@9.12.1: {}
 
   possible-typed-array-names@1.0.0: {}
 
