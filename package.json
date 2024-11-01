@@ -76,7 +76,7 @@
   },
   "devDependencies": {
     "@antfu/ni": "^0.22.4",
-    "@types/node": "22.4.2",
+    "@types/node": "22.8.6",
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^3.0.0",
     "bumpp": "^9.5.1",
