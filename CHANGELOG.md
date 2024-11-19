@@ -1,3 +1,9 @@
+# 1.5.0
+
+## Features
+
+- 增加 `excludedExtensions` 配置，用于指定不需要格式化的文件类型
+
 # 1.4.0
 
 ## Fixes

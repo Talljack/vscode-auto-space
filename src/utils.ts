@@ -1,4 +1,5 @@
 // import type { TextEditorEdit } from 'vscode'
+import type { TextDocument } from 'vscode'
 import { Range, TextEdit, window as Window, workspace as Workspace } from 'vscode'
 import { customSpacing } from './handler'
 import type { AutoSpaceConfigType } from './type'
@@ -42,15 +43,34 @@ function restoreMarkdown(replacedText: string, replacements: string[]) {
  */
 export function getAutoSpaceConfig(): AutoSpaceConfigType {
   const config = Workspace.getConfiguration('autoAddSpace')
-  // const enable = config.get('enable')
   const formatOnSave = config.get('formatOnSave') as boolean
   const formatOnDocument = config.get('formatOnDocument') as boolean
   const spaceType = config.get('spaceType') as AutoSpaceConfigType['spaceType']
+  const excludedExtensions = config.get('excludedExtensions') as string[]
   return {
     formatOnSave,
     formatOnDocument,
     spaceType,
+    excludedExtensions,
   }
+}
+
+/**
+ *
+ * @param document
+ */
+export function shouldProcessFile(document: TextDocument): boolean {
+  const { excludedExtensions } = getAutoSpaceConfig()
+  if (!excludedExtensions || excludedExtensions.length === 0)
+    return true
+
+  const fileName = document.fileName
+  const fileExtension = fileName.split('.').pop()?.toLowerCase()
+
+  if (!fileExtension)
+    return true
+
+  return !excludedExtensions.includes(fileExtension)
 }
 
 /**
@@ -62,6 +82,9 @@ export function autoAddSpace(text: string) {
   if (!editor)
     return
   const document = editor.document
+  if (!shouldProcessFile(document))
+    return
+
   const lang = document.languageId
   const { spaceType } = getAutoSpaceConfig()
   let lines: string[] = []
@@ -92,12 +115,6 @@ export function autoAddSpace(text: string) {
     }
   })
   const updatedText = updatedLines.join('\n')
-  // const start = new Position(0, 0)
-  // const end = new Position(document.lineCount, 0)
-  // const range = new Range(start, end)
-  // editor.edit((editBuilder: TextEditorEdit) => {
-  //   editBuilder.replace(range, updatedText)
-  // })
   const fullRange = new Range(
     document.positionAt(0),
     document.positionAt(text.length),

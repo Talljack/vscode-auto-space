@@ -10,6 +10,9 @@ let configurationListener: Disposable
  * @param document
  */
 async function formatDocument(document: vscode.TextDocument) {
+  if (!shouldProcessFile(document))
+    return []
+
   const text = document.getText()
   return autoAddSpace(text)
 }
@@ -76,4 +79,15 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {
   autoAddSpaceListener.dispose()
   configurationListener.dispose()
+}
+
+/**
+ *
+ * @param document
+ */
+function shouldProcessFile(document: vscode.TextDocument) {
+  const { excludedExtensions } = getAutoSpaceConfig()
+  const fileExtension = document.fileName.split('.').pop()
+
+  return fileExtension && !excludedExtensions.includes(fileExtension)
 }
