@@ -4,7 +4,7 @@
   "displayName": "Auto Add Space between Chinese and English",
   "version": "1.4.0",
   "private": true,
-  "packageManager": "pnpm@9.13.0",
+  "packageManager": "pnpm@9.13.2",
   "description": "Auto add space between Chinese and English when you save file",
   "author": "Talljack<yugang.cao12@gmail.com>",
   "license": "MIT",
@@ -56,6 +56,14 @@
             "comment"
           ],
           "description": "Auto Add Space's type"
+        },
+        "autoAddSpace.excludedExtensions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "List of file extensions to exclude from processing (e.g., ['txt', 'md']). Do not include the dot in the extension."
         }
       }
     }

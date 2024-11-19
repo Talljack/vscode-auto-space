@@ -17,6 +17,19 @@ Auto add space between Chinese and English.
 | autoAddSpace.formatOnSave    | true          | boolean            | Execute auto add space when on file save     |
 | autoAddSpace.formatOnDocument | false         | boolean            | Execute add space on Format Document command |
 | autoAddSpace.spaceType       | 'all'         | 'all' \| 'comment' | Auto Add Space's type                        |
+| autoAddSpace.excludedExtensions | []           | string[]           | List of file extensions to exclude from processing (e.g., ['txt', 'md']). Do not include the dot in the extension. |
+
+### Excluding Files
+
+You can exclude specific file types from being processed by adding their extensions to the `autoAddSpace.excludedExtensions` setting. For example:
+
+```json
+{
+  "autoAddSpace.excludedExtensions": ["txt", "md"]
+}
+```
+
+This will prevent the extension from modifying files with `.txt` and `.md` extensions, preserving their original content.
 
 ## CHALNGELOG
 
@@ -24,4 +37,4 @@ Auto add space between Chinese and English.
 
 ## License
 
-[MIT](./LICENSE) License © 2023 [Talljack](https://github.com/talljack)
+[MIT](./LICENSE) License  2023 [Talljack](https://github.com/talljack)
