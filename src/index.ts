@@ -88,5 +88,6 @@ export function deactivate() {
 function shouldProcessFile(document: vscode.TextDocument) {
   const { excludedExtensions } = getAutoSpaceConfig()
   const fileExtension = document.fileName.split('.').pop()
-  return !excludedExtensions.includes(fileExtension)
+
+  return fileExtension && !excludedExtensions.includes(fileExtension)
 }
