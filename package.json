@@ -83,7 +83,7 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.23.0",
+    "@antfu/ni": "^0.23.1",
     "@types/node": "^22.9.0",
     "@types/vscode": "^1.69.0",
     "@vscode/vsce": "^3.2.1",
